@@ -1,0 +1,121 @@
+:root {
+  --black: #293132;
+  --cafe: #474044;
+  --azulObscuro: #4F5165;
+  --azul: #547AA5;
+  --azulClaro: #50D8D7;
+}
+
+
+
+nav{
+	background-color: var(--black);
+
+}
+
+a{
+	color: var(--azul);
+}
+
+a:hover{
+	color: var(--azulClaro);
+}
+
+img{
+	margin:0 auto;
+}
+
+#imagen{
+	height: 100%;
+	background: url(../img/FF.png);
+	
+}
+
+#logo{
+	margin-top:50%;
+	padding: 20px; 
+	background-color: var(--black);
+	border-radius: 10px;
+	color:  #18A381;
+}
+
+#sesion
+{
+	margin-top:70%;
+	
+	background-color: #18A381;
+	border-radius: 10px;
+	color:  var(--azulObscuro);
+}
+
+
+#ingresar{
+	margin:0 auto;
+	background-color: var(--black);
+}
+
+#ingresa{
+	border: 5px;
+	margin: 10px;
+
+}
+
+#ingresa:hover{
+	background-color: var(--black);
+}
+
+.main-section{
+	margin:0 auto;
+}
+
+
+#RC{
+	color: var(--azulObscuro);
+}
+
+#RC:hover{
+	color: var(--black);
+}
+
+#ingresa{
+	background-color: var(--azulObscuro);
+}
+
+
+#imgP{
+	margin: 20px;
+	margin-top: -20px;
+}
+
+#formula{
+	background-color: $color-white;
+}
+#imgP{
+	margin: 20px;
+}
+
+#formula{
+	background-color: $color-white;
+}
+#busqueda{
+	background-color: var(--black);
+}
+#buscar{
+margin-left: 20rem;
+width: 50rem;
+background-color: var(--azulObscuro);
+	color: white;
+}
+#btnBusqueda{
+	background-color: var(--black);
+}
+#carta1{
+	margin-left: 21rem;
+	margin-top: 1rem;
+	background-color: var(--azulObscuro);
+	color: white;
+}
+#pie{
+	background-color: var(--black);
+	color: white;
+}

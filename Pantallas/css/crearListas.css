@@ -1,0 +1,79 @@
+
+:root {
+  --black: #293132;
+  --cafe: #474044;
+  --azulObscuro: #4F5165;
+  --azul: #547AA5;
+  --azulClaro: #50D8D7;
+}
+
+body{
+	background: url(../img/fondo2.png);
+}
+
+nav{
+	background-color: var(--black);
+
+}
+
+nav a{
+	color: var(--azulClaro);
+}
+
+nav a:hover{
+	color: var(--azul);
+}
+
+#TT{
+	text-align: center;
+	color: white;
+}
+
+#titulo{
+	width: 520px;
+}
+
+#btn{
+	margin: 10px;
+}
+
+#crear{
+	background-color: var(--azulObscuro);
+	color: white;
+	padding: 20px;
+	border-radius: 30px;
+	margin:20px auto;
+}
+
+#listaCrear{
+	margin: 20px;
+}
+
+#btn{
+	
+	 width: 50px;
+	 height: 50px;
+	 background-color: var(--cafe);
+	 color: var(--azulClaro);
+}
+
+#btn:hover{
+	background-color: var(--black);
+}
+
+#btnCrea{
+	background-color: var(--cafe);
+	color: var(--azulClaro);
+	margin-top: 30px;
+	margin-left:50%;
+}
+
+#btnCrea:hover{
+	background-color: var(--black);
+}
+
+.form-control{
+	background-color: var(--cafe);
+	color: white;
+	border: solid var(--black);
+}

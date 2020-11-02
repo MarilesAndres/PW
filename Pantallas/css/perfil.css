@@ -1,0 +1,64 @@
+:root {
+  --black: #293132;
+  --cafe: #474044;
+  --azulObscuro: #4F5165;
+  --azul: #547AA5;
+  --azulClaro: #50D8D7;
+}
+
+nav{
+	background-color: var(--black);
+
+}
+
+nav a{
+	color: var(--azulClaro);
+}
+
+nav a:hover{
+	color: var(--azul);
+}
+
+#fotoP{
+	margin: 20px;
+}
+
+#datosP{
+	margin-top: 30px;
+
+}
+
+#persona{
+
+	margin: 20px;
+	margin-top: 10px;
+	padding: 10px;
+	background-color: var(--cafe);
+	border-radius: 20px;
+	color: var(--azul);
+}
+
+#carta{
+	margin-top: 30px;
+	margin-left: 20rem;
+	background-color: var(--azulObscuro);
+	color: white;
+}
+
+#editar{
+	margin-top: 10px; 
+	background-color: var(--azul);
+}
+
+#editar:hover{
+	background-color: var(--azulClaro);
+}
+#modall{
+background:url(../img/imagen.png);
+color: white;
+
+}
+#recipient-name{
+	background-color: var(--azulObscuro);
+color: white;
+}

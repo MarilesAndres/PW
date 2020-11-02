@@ -1,0 +1,47 @@
+:root {
+  --black: #293132;
+  --cafe: #474044;
+  --azulObscuro: #4F5165;
+  --azul: #547AA5;
+  --azulClaro: #50D8D7;
+}
+
+
+body{
+	background: url(../img/terreno.png);
+}
+
+#crearC{
+	background-color: var(--black);
+	color: var(--azulClaro);
+	border-radius: 10px; 
+}
+
+#Principal{
+	margin:0 auto;
+}
+
+h3.form-group{
+	margin-top: 10px;
+}
+
+.form-group{
+	margin-bottom: 50px;
+}
+
+
+#btnCrea{
+	background-color: var(--azulObscuro);
+	border: solid #547AA5;
+	margin-bottom: 30px;
+	margin-top: 20px;
+}
+
+#btnCrea:hover{
+	background-color: var(--azul);
+}
+
+.form-control{
+	background-color: var(--azulObscuro);
+	color: white;
+}
