@@ -1,4 +1,51 @@
+function logIn(){
+    var req = new XMLHttpRequest();
+    req.open ("GET","http://localhost:3000/user",true);
+    req.onreadystatechange = function (data) {
+        if (req.readyState == 4 && req.status == 200) {
+            var entro = false;
+            var usuario = document.getElementById("formula1").value;
+            var contra = document.getElementById("formula").value;
+            var datos = data.target.response;
+            console.log(datos);
+            var parse = JSON.parse(datos);
+
+            parse.forEach((k, v) => {
+                console.log(`${k.NombreUsuario}`);
+                console.log(`${v}`);
+                if( (k.NombreUsuario == usuario) && (contra == k.Contraseña))
+                {
+                    console.log("entraZORRA");
+                    entro = true;
+                   
+                   
+                }
+                else{
+                    if(entro == false){
+                        console.log("TODAVIA MI REY");
+                        entro = false;
+                    }
+                }
+            });
+
+            if(entro == false){
+                alert("Usuario o Contraseña no coinciden");
+            }
+            else{
+                window.open("inicio.html","_self");
+            }
+        }
+    }
+     req.send();
+};
+
+
 function fetch(){
+    var button = document.getElementById("ingresa");
+    if(button){
+        button.addEventListener("click",logIn, false );
+    }
+    
     var req = new XMLHttpRequest();
     req.open ("GET","http://localhost:3000/user",true);
     req.onreadystatechange = function (data) {
@@ -11,7 +58,7 @@ function fetch(){
             parse.forEach((k, v) => {
                 console.log(`${k.NombreUsuario}`);
                 console.log(`${v}`);
-                usuario.value = k.NombreUsuario;
+                
             });
         }
         else{

@@ -55,27 +55,17 @@ app.get("/user/:id", (req, res) => {
   );
 });
 
-/*
-app.get("/user/:id", (req, res) => {
-    res.send(`informacion de usuario ${id}`);
+///////////////////////////---------CREAR CUENTA--------------/////////////////////////////////////////////////////////////////
+
+app.post("/user", (req, res) => {
+  connection.query(
+    `insert usuario(Correo, NombreUsuario, Contraseña, PoP) values ('${req.body.Correo}','${req.body.NombreUsuario}','${req.body.Contraseña}', ${req.body.PoP});`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
 });
-
-app.post("/user/:id", (req,res) =>{
-
-});
-
-app.post("/user", (req,res) =>{
-
-});
-
-app.put("/user/:id", (req,res) =>{
-
-});
-
-app.delete("/user/:id", (req,res) =>{
-
-});
-*/
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

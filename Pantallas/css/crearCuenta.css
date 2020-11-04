@@ -17,6 +17,8 @@ body{
 	border-radius: 10px; 
 }
 
+
+
 #Principal{
 	margin:0 auto;
 }
@@ -31,6 +33,13 @@ h3.form-group{
 
 
 #btnCrea{
+	background-color: var(--azulObscuro);
+	border: solid #547AA5;
+	margin-bottom: 30px;
+	margin-top: 20px;
+}
+
+#btnCreaC{
 	background-color: var(--azulObscuro);
 	border: solid #547AA5;
 	margin-bottom: 30px;
