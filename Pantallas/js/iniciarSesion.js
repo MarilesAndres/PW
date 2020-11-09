@@ -1,6 +1,8 @@
+
 function logIn(){
     var req = new XMLHttpRequest();
     req.open ("GET","http://localhost:3000/user",true);
+
     req.onreadystatechange = function (data) {
         if (req.readyState == 4 && req.status == 200) {
             var entro = false;
@@ -10,15 +12,14 @@ function logIn(){
             console.log(datos);
             var parse = JSON.parse(datos);
 
-            parse.forEach((k, v) => {
+            parse[0].forEach((k, v) => {
                 console.log(`${k.NombreUsuario}`);
                 console.log(`${v}`);
                 if( (k.NombreUsuario == usuario) && (contra == k.Contraseña))
                 {
                     console.log("entraZORRA");
                     entro = true;
-                   
-                   
+                   localStorage.setItem("ID",k.IdUsuario);
                 }
                 else{
                     if(entro == false){
@@ -29,7 +30,7 @@ function logIn(){
             });
 
             if(entro == false){
-                alert("Usuario o Contraseña no coinciden");
+                alert("Usuario y Contraseña no coinciden");
             }
             else{
                 window.open("inicio.html","_self");
@@ -38,6 +39,9 @@ function logIn(){
     }
      req.send();
 };
+
+
+
 
 
 function fetch(){
@@ -54,8 +58,8 @@ function fetch(){
             var datos = data.target.response;
             console.log(datos);
             var parse = JSON.parse(datos);
-
-            parse.forEach((k, v) => {
+            console.log(parse[0]);
+            parse[0].forEach((k, v) => {
                 console.log(`${k.NombreUsuario}`);
                 console.log(`${v}`);
                 

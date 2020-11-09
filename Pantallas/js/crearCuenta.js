@@ -1,3 +1,20 @@
+function init() {
+  var inputFile = document.getElementById('inputFile1');
+  inputFile.addEventListener('change', mostrarImagen, false);
+}
+
+function mostrarImagen(event) {
+  var file = event.target.files[0];
+  var reader = new FileReader();
+  reader.onload = function(event) {
+    var img = document.getElementById('img1');
+    img.src= event.target.result;
+  }
+  reader.readAsDataURL(file);
+}
+
+
+
 function crearCuenta(){
     let boton = document.getElementById("btnCrea");
     let NU = document.getElementById("NU").value;
@@ -39,6 +56,8 @@ function fetch(){
     if(button){
         button.addEventListener("click",crearCuenta, false );
     }
+
+    window.addEventListener('load', init, false);
     document.getElementById("NU").value = "";
     document.getElementById("contraseña").value = "";
     document.getElementById("Email").value = "";
