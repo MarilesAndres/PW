@@ -10,7 +10,7 @@ function buscarL(){
             var datos = data.target.response;
             console.log(datos);
             var parse = JSON.parse(datos);
-            
+            let listas = 1;
             parse[0].forEach((k, v) => {
                 
                     $( "#Listas" ).prepend( `<div class="card mb-3" style="max-width: 840px;"  id="carta1" >
@@ -20,14 +20,14 @@ function buscarL(){
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <a href="verListas.html" >${k.NombreLista}</a> 
+                      <a href="#" id="verLista${listas}">${k.NombreLista}</a> 
                       <p class="card-text">${k.Descripcion}</p>
                       <p class="card-text"><small id="Autor">Autor: ${k.NombreUsuario}</small></p>
                     </div>
                   </div>
                 </div>
               </div>` );
-               
+               listas ++;
             });
         }
         else{
@@ -50,7 +50,7 @@ function buscarPS(){
             var datos = data.target.response;
             console.log(datos);
             var parse = JSON.parse(datos);
-            
+            let listas = 1;
             parse[0].forEach((k, v) => {
                 
                     $( "#Listas" ).prepend( `<div class="card mb-3" style="max-width: 840px;"  id="carta1" >
@@ -60,14 +60,14 @@ function buscarPS(){
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <a href="verListas.html" >${k.NombreLista}</a> 
+                      <a href="#" id="verLista${listas}">${k.NombreLista}</a> 
                       <p class="card-text">${k.Descripcion}</p>
                       <p class="card-text"><small id="Autor">Autor: ${k.NombreUsuario}</small></p>
                     </div>
                   </div>
                 </div>
               </div>` );
-               
+               listas ++;
             });
         }
         else{
@@ -90,7 +90,7 @@ function buscarXB(){
             var datos = data.target.response;
             console.log(datos);
             var parse = JSON.parse(datos);
-            
+            let listas = 1;
             parse[0].forEach((k, v) => {
                 
                     $( "#Listas" ).prepend( `<div class="card mb-3" style="max-width: 840px;"  id="carta1" >
@@ -100,14 +100,14 @@ function buscarXB(){
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <a href="verListas.html" >${k.NombreLista}</a> 
+                      <a href="#" id="verLista${listas}">${k.NombreLista}</a> 
                       <p class="card-text">${k.Descripcion}</p>
                       <p class="card-text"><small id="Autor">Autor: ${k.NombreUsuario}</small></p>
                     </div>
                   </div>
                 </div>
               </div>` );
-               
+               listas ++;
             });
         }
         else{
@@ -130,7 +130,7 @@ function buscarNI(){
             var datos = data.target.response;
             console.log(datos);
             var parse = JSON.parse(datos);
-            
+            let listas = 1;
             parse[0].forEach((k, v) => {
                 
                     $( "#Listas" ).prepend( `<div class="card mb-3" style="max-width: 840px;"  id="carta1" >
@@ -140,14 +140,14 @@ function buscarNI(){
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <a href="verListas.html" >${k.NombreLista}</a> 
+                      <a href="#" id="verLista${listas}">${k.NombreLista}</a> 
                       <p class="card-text">${k.Descripcion}</p>
                       <p class="card-text"><small id="Autor">Autor: ${k.NombreUsuario}</small></p>
                     </div>
                   </div>
                 </div>
               </div>` );
-               
+               listas ++;
             });
         }
         else{
@@ -170,7 +170,7 @@ function buscarPC(){
             var datos = data.target.response;
             console.log(datos);
             var parse = JSON.parse(datos);
-            
+            let listas = 1;
             parse[0].forEach((k, v) => {
                 
                     $( "#Listas" ).prepend( `<div class="card mb-3" style="max-width: 840px;"  id="carta1" >
@@ -180,14 +180,14 @@ function buscarPC(){
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <a href="verListas.html" >${k.NombreLista}</a> 
+                      <a href="#" id="verLista${listas}">${k.NombreLista}</a> 
                       <p class="card-text">${k.Descripcion}</p>
                       <p class="card-text"><small id="Autor">Autor: ${k.NombreUsuario}</small></p>
                     </div>
                   </div>
                 </div>
               </div>` );
-               
+               listas ++;
             });
         }
         else{
@@ -210,7 +210,7 @@ function buscarAN(){
             var datos = data.target.response;
             console.log(datos);
             var parse = JSON.parse(datos);
-            
+            let listas = 1;
             parse[0].forEach((k, v) => {
                 
                     $( "#Listas" ).prepend( `<div class="card mb-3" style="max-width: 840px;"  id="carta1" >
@@ -220,14 +220,14 @@ function buscarAN(){
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <a href="verListas.html" >${k.NombreLista}</a> 
+                      <a href="#" id="verLista${listas}">${k.NombreLista}</a> 
                       <p class="card-text">${k.Descripcion}</p>
                       <p class="card-text"><small id="Autor">Autor: ${k.NombreUsuario}</small></p>
                     </div>
                   </div>
                 </div>
               </div>` );
-               
+               listas ++;
             });
         }
         else{
@@ -250,7 +250,7 @@ function buscarIO(){
             var datos = data.target.response;
             console.log(datos);
             var parse = JSON.parse(datos);
-            
+            let listas = 1;
             parse[0].forEach((k, v) => {
                 
                     $( "#Listas" ).prepend( `<div class="card mb-3" style="max-width: 840px;"  id="carta1" >
@@ -260,14 +260,14 @@ function buscarIO(){
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <a href="verListas.html" >${k.NombreLista}</a> 
+                      <a href="#" id="verLista${listas}">${k.NombreLista}</a> 
                       <p class="card-text">${k.Descripcion}</p>
                       <p class="card-text"><small id="Autor">Autor: ${k.NombreUsuario}</small></p>
                     </div>
                   </div>
                 </div>
               </div>` );
-               
+               listas ++;
             });
         }
         else{
@@ -278,8 +278,20 @@ function buscarIO(){
     
 }
 
+
+
+$(document).click(function(event) {
+  var text = $(event.target).text();
+  localStorage.setItem("nombreLista", text);
+});
+
+$("#Listas").on("click", "a", function (event) {
+ window.location.href='verListas.html';
+});
+
+
 function fetch(){
-    var ID = localStorage.getItem("ID");
+    
     
     var button = document.getElementById("buscarListas");
     if(button){
@@ -310,8 +322,10 @@ function fetch(){
     if(IO){
         IO.addEventListener("click",buscarIO, false );
     }
-    
 
+    
+    
+    var ID = localStorage.getItem("ID");
     var req = new XMLHttpRequest();
     req.open("GET",`http://localhost:3000/user/${ID}`, true);
     req.onreadystatechange = function (data) {
@@ -341,6 +355,7 @@ function fetch(){
             console.log(datos);
             var parse = JSON.parse(datos);
             var valor = parse.length;
+            let listas = 1;
             parse.forEach((k, v) => {
                 if(valor <= 5){
                     $( "#Listas" ).prepend( `<div class="card mb-3" style="max-width: 840px;"  id="carta1" >
@@ -350,13 +365,15 @@ function fetch(){
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <a href="verListas.html" >${k.NombreLista}</a> 
+                      <a href="#" id="verLista${listas}">${k.NombreLista}</a> 
                       <p class="card-text">${k.Descripcion}</p>
                       <p class="card-text"><small id="Autor">Autor: ${k.NombreUsuario}</small></p>
                     </div>
                   </div>
                 </div>
               </div>` );
+
+              listas++;
                 }
                 else{
                     valor --;
@@ -371,7 +388,7 @@ function fetch(){
         }
     }
     req2.send();
-
+    
 };
 
 window.onload = fetch();

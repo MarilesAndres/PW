@@ -64,7 +64,7 @@ app.get("/user/:id", (req, res) => {
 app.get("/listas", (req, res) => {
   connection.query(
     `select NombreLista, PrivPub, Descripcion, u.NombreUsuario  from Listas l 
-    inner join Usuario u on l.Autor = u.IdUsuario`,
+    inner join Usuario u on l.Autor = u.IdUsuario where u.PoP = 1 and l.PrivPub = 1`,
     function (err, rows, fields) {
       if (err) throw err;
       res.send(rows);
@@ -90,6 +90,59 @@ app.post("/editar", (req, res) => {
   connection.query(
     `UPDATE usuario SET Correo= '${req.body.Correo}', NombreUsuario = '${req.body.NombreUsuario}', Contraseña= '${req.body.Contraseña}', 
     PoP = ${req.body.PoP} WHERE IdUsuario = ${req.body.IdUsuario}`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
+});
+
+
+
+///////////////////----------------VER LISTAS-----------------//////////////////////////////////
+
+
+app.get("/verLista/:nombre", (req, res) => {
+  connection.query(
+    `call VerLista("${req.params.nombre}");`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
+});
+
+
+/////////////////////////----------Pagina Perfil--------------//////////////////////////////////
+
+app.get("/verListaUsuario/:id", (req, res) => {
+  connection.query(
+    `call ListasUsuario("${req.params.id}");`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
+});
+
+
+
+//////////////////////----------autorLista------------------///////////////////////////
+
+app.get("/verAutorLista/:nombre", (req, res) => {
+  connection.query(
+    `call AutorDeLista("${req.params.nombre}");`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
+});
+
+
+app.get("/verListaUsuarioP/:nombre", (req, res) => {
+  connection.query(
+    `call ListasUsuarioP("${req.params.nombre}");`,
     function (err, rows, fields) {
       if (err) throw err;
       res.send(rows);

@@ -70,6 +70,15 @@ function EditarInfo()
     onclick = location.reload();
 }
 
+$(document).click(function(event) {
+    var text = $(event.target).text();
+    localStorage.setItem("nombreLista", text);
+  });
+  
+  $("#ListasUsuario").on("click", "a", function (event) {
+   window.location.href='verListas.html';
+  });
+
 
 function fetch(){
     var ID = localStorage.getItem("ID");
@@ -112,6 +121,47 @@ function fetch(){
         }
     }
     req.send();
+
+
+    var req2 = new XMLHttpRequest();
+    req2.open("GET",`http://localhost:3000/verListaUsuario/${ID}`, true);
+    req2.onreadystatechange = function (data) {
+        if (req2.readyState == 4 && req2.status == 200) {
+            var datos = data.target.response;
+            console.log(datos);
+            var parse = JSON.parse(datos);
+
+            
+            parse[0].forEach((k, v) => {
+                if(k.PrivPub.data[0] == 1)
+                {
+                   var pop = "Publico";
+                }
+                else{
+                    var pop = "Privado";
+                }
+                $("#ListasUsuario").prepend(`<div class="card mb-3" style="max-width: 840px;"  id="carta">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="img/FF.png" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <a href="#" >${k.NombreLista}</a> 
+                      <p class="card-text">${k.Descripcion}</p>
+                      <p class="card-text"><small class="text-muted">${pop}</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>`)
+                
+            });
+        }
+        else{
+            console.log("hola");
+        }
+    }
+    req2.send();
 };
 
 window.onload = fetch();
