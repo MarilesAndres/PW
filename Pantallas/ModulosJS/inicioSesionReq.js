@@ -63,8 +63,8 @@ app.get("/user/:id", (req, res) => {
 
 app.get("/listas", (req, res) => {
   connection.query(
-    `select NombreLista, PrivPub, Descripcion, u.NombreUsuario  from Listas l 
-    inner join Usuario u on l.Autor = u.IdUsuario where u.PoP = 1 and l.PrivPub = 1`,
+    `    select NombreLista, PrivPub, Descripcion, u.NombreUsuario  from Listas l 
+    inner join Usuario u on l.Autor = u.IdUsuario where u.PoP = 1 and l.PrivPub = 1 order by l.IdLista;`,
     function (err, rows, fields) {
       if (err) throw err;
       res.send(rows);
@@ -143,6 +143,60 @@ app.get("/verAutorLista/:nombre", (req, res) => {
 app.get("/verListaUsuarioP/:nombre", (req, res) => {
   connection.query(
     `call ListasUsuarioP("${req.params.nombre}");`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
+});
+
+
+//////////////////////////--------Crear Listas-------------///////////////////////////////////
+
+app.get("/Secciones", (req, res) => {
+  connection.query(
+    `call Secciones()`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
+});
+
+app.post("/agregarLista", (req, res) => {
+  connection.query(
+    `call AgregaLista('${req.body._NombreLista}', ${req.body._PrivPub}, ${req.body._Autor}, '${req.body._Descripcion}')`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
+});
+
+app.get("/IdLista/:_NombreLista", (req, res) => {
+  connection.query(
+    `call IdListaAutor ('${req.params._NombreLista}')`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
+});
+
+app.post("/agregarSeccionLista", (req, res) => {
+  connection.query(
+    `call agregarSeccion(${req.body.idS}, ${req.body.idL})`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
+});
+
+
+app.post("/agregarElemento", (req, res) => {
+  connection.query(
+    `call agregarElemento('${req.body._titulo}', '${req.body._Descripcion}', ${req.body._IdLista})`,
     function (err, rows, fields) {
       if (err) throw err;
       res.send(rows);
