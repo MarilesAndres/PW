@@ -88,6 +88,13 @@ $("#btnCrea").click(function(){
 
     var tituloL = document.getElementById("TituloLista").value;
     var PoP = document.getElementsByName('optradio');
+    if(tituloL=="")
+    {
+        alert("No introdujiste nada");
+    }else{
+        //aqui poner lo demas
+    }
+    
     for (var i = 0, length = PoP.length; i < length; i++) {
       if (PoP[i].checked) {
         PoP= PoP[i].value;
@@ -96,6 +103,13 @@ $("#btnCrea").click(function(){
     }
     var ID = localStorage.getItem("ID");
     var desc = document.getElementById("descripcion").value;
+
+    if(desc==""){
+        alert("No pusiste una descripcion");
+    }
+    else{
+        //poner los demas
+    }
 
     var req = new XMLHttpRequest();
     req.open("POST", "http://localhost:3000/agregarLista", true);
@@ -208,6 +222,11 @@ $("#btnCrea").click(function(){
                  {
                      var tituliElemento = document.getElementById(`pin${ll + 1}`).value;
                      var descElemento = document.getElementById(`desc${ll+1}`).value;
+                     if(tituliElemento==""){
+                         alert("Te falto el titulo del elemento"+ (ll+1));
+                     }else{
+                         //poner lo otro
+                     }
                      var req5 = new XMLHttpRequest();
                      req5.open("POST", "http://localhost:3000/agregarElemento", true);
                       req5.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -217,7 +236,7 @@ $("#btnCrea").click(function(){
                          _Descripcion: descElemento,
                          _IdLista: k.IdLista
                           })
-                           );
+                        );
                 }
 
                 GuardarTodo = true;

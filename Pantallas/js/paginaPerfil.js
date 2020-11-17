@@ -39,6 +39,11 @@ function EditarInfo()
     let NU =     document.getElementById("nombreE").value;
     let Contra = document.getElementById("contrasenaE").value
     let Correo = document.getElementById("correoE").value;
+    if(NU==""||Contra==""||Correo==""){
+        alert("Te falto un campo");
+      }else{
+        //poner lo otro
+    }
    let radioPop;
    if(document.getElementById("publicoE").checked == true)
    {

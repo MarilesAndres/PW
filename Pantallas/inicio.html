@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> </title>
+  <title> </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet"  href="css/inicioSesion.css">
 	<link rel="stylesheet"  href="css/perfil.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -27,6 +28,9 @@ body {
  	background:url(img/fondo1.png);
 }
 
+#buscar2{
+  position: absolute;
+}
 .sidenav {
   height: 100%;
   width: 0;
@@ -111,13 +115,13 @@ body {
 	       </div>
      </nav>
 
-   <nav class="navbar navbar-expand-md bg-faded sticky-top" id="busqueda">
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
-  <form class="form-inline">
+
+  <nav class="navbar navbar-expand-md bg-faded sticky-top" id="busqueda">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="buscar" >
     <button type="button" class="btn btn-outline-secondary" id="buscarListas">Search</button>
-  </form>
-</nav>
+  </nav>
+
    
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>

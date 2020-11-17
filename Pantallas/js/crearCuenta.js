@@ -20,6 +20,11 @@ function crearCuenta(){
     let NU = document.getElementById("NU").value;
     let Contra = document.getElementById("contraseña").value;
     let Correo = document.getElementById("Email").value;
+    if(NU==""||Contra==""||Correo==""){
+      alert("Te falto un campo");
+    }else{
+      //poner lo otro
+    }
    let radioV;
     var radios = document.getElementsByName('optradio');
     for (var i = 0, length = radios.length; i < length; i++) {

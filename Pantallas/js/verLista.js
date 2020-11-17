@@ -49,7 +49,8 @@ function fetch(){
                 }
                 document.getElementById('tituloLista').innerHTML = k.NombreLista;
 
-                $( "#Elementos" ).append( `<div class="row" id="elementoLista">
+                $( "#Elementos" ).append( `<div class = "container">
+                <div class="row" id="elementoLista">
                 <div class="col-4">
                 
                     <div class="form-group">
@@ -70,6 +71,7 @@ function fetch(){
                         
                     </div>
                 </div>
+                    </div>
                     </div>
                     <br>` );
             });

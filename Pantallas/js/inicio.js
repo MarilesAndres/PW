@@ -1,6 +1,8 @@
 function buscarL(){
    
     let busca = document.getElementById("buscar").value;
+    
+
     $("#Listas").empty();
    
     var req = new XMLHttpRequest();
