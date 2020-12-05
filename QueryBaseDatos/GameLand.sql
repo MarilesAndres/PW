@@ -9,7 +9,9 @@ Contraseña varchar(20) not null,
 Foto blob
 );
 
+describe usuario;
 
+alter table Usuario modify foto text;
 
 aLTER TABLE Usuario ADD PoP bit default 1;
 
@@ -56,6 +58,8 @@ insert into Listas set NombreLista = 'JuegosRetro', PrivPub = 1, Autor = 7, Desc
 insert into Listas set NombreLista = 'Juegos de Estrategia', PrivPub = 1, Autor = 6, Descripcion = 'Para mejorar tu IQ en 1000';
 insert into Listas set NombreLista = 'Juegos para Mobil', PrivPub = 1, Autor = 3, Descripcion = 'Juegos para duvertirte sin necesidad de computadora, solo tu telefono';
 insert into Listas set NombreLista = 'Juegos PLAY', PrivPub = 1, Autor = 6, Descripcion = 'Mejores juegos de PLAY';
+
+
 select * from Listas;
 
 delete from Listas where IdLista = 18;
@@ -142,3 +146,6 @@ select NombreLista, PrivPub, Descripcion, u.NombreUsuario  from Listas l
     
     select NombreLista, PrivPub, Descripcion, u.NombreUsuario  from Listas l 
     inner join Usuario u on l.Autor = u.IdUsuario where u.PoP = 1 and l.PrivPub = 1 order by l.IdLista desc;
+    
+    
+    call IdListaAutor()

@@ -46,17 +46,31 @@ drop procedure VerLista;
 
 call VerLista("Juegos PLAY");
 
+select * from listas;
+DELIMITER //
+CREATE PROCEDURE VerListaId(in id int)
+BEGIN
+select IdLista, NombreLista, Descripcion , privPub from listas
+where IdLista = id;
+END 
+//
+DELIMITER ;{
+
+drop procedure VerListaId;
+
+call VerListaId(42);
+
 DELIMITER //
 CREATE PROCEDURE ListasUsuario(in _Autor int)
 BEGIN
-select NombreLista, PrivPub, Descripcion from Listas l inner join Usuario u on u.IdUsuario = l.Autor where Autor  = _Autor; 
+select IdLista, NombreLista, PrivPub, Descripcion from Listas l inner join Usuario u on u.IdUsuario = l.Autor where Autor  = _Autor; 
 END 
 //
 DELIMITER ;
 
 drop procedure ListasUsuario;
 
-call ListasUsuario(3);
+call ListasUsuario(1);
 
 
 
@@ -120,7 +134,7 @@ DELIMITER ;
 
 drop procedure IdLista;
 
-call IdListaAutor ("SpiderMan");
+call IdListaAutor ("ayuda");
 
 
 DELIMITER //
@@ -153,6 +167,34 @@ END
 DELIMITER ;
 
 
-call agregarElemento()
+call agregarElemento();
+
+
+drop procedure eliminTabla;
+DELIMITER //
+CREATE PROCEDURE eliminTabla(in _IdLista int)
+BEGIN
+SET FOREIGN_KEY_CHECKS=0;
+delete from listas where IdLista = _IdLista;
+SET FOREIGN_KEY_CHECKS=1;
+END 
+//
+DELIMITER ;
+
+
+call eliminTabla(31);
+
+drop procedure editaLista;
+DELIMITER //
+CREATE PROCEDURE editaLista(in _IdLista int, in _NombreLista varchar(30), in _Descripcion text, in _PrivPub bit)
+BEGIN
+	update listas set NombreLista = _NombreLista, Descripcion = _Descripcion, PrivPub = _PrivPub
+    where IdLista = _IdLista;
+END 
+//
+DELIMITER ;
+
+call editaLista(20, 'los mejores personajes', 'PERSONAJEEEEES', 0);
+
 
 

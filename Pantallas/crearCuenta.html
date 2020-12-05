@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/crearCuenta.css">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
 </head>
 <body>
 
@@ -14,22 +15,22 @@
 		<div class="col-sm-12" id="Principal">
 			<div class="modal-content" id="crearC">
 				
-				<form class="col-12">
+				<form class="col-12" action="/user" id="ajax-form" enctype="multipart/form-data" method="POST">
 					<h3 class="form-group">Crear cuenta</h3>
 					
 					<div class="form-group">
 						<h6 class="text-left">Nombre de Usuario</h6>
-						<input type="text" class="form-control" placeholder="Nombre de Usuario" id="NU">
+						<input type="text" class="form-control" placeholder="Nombre de Usuario" id="NU" name="NU">
 					</div>
 
 					<div class="form-group" >
 						<h6 class="text-left">Contraseña</h6>
-						<input type="password" class="form-control" placeholder="Contraseña" id="contraseña">
+						<input type="password" class="form-control" placeholder="Contraseña" id="contraseña" name="contraseña">
 					</div>
 
 					<div class="form-group">
 						<h6 class="text-left">Correo Electronico</h6>
-						<input type="text" class="form-control" placeholder="Correo Electronico" id="Email" >
+						<input type="text" class="form-control" placeholder="Correo Electronico" id="Email" name="Email">
 					</div>
 
 					<div class="form-group">
@@ -49,7 +50,7 @@
 					<div class="form-group text-left">
 						<h6 class="text-left">Foto de Perfil</h6>
 						<img src="img/perfil.png" width="100" height="100" alt="" loading="lazy" id="img1"> <br>
-						<input id="inputFile1" type="file">
+						<input id="inputFile1" type="file" name="myFile">
 					</div>
 
 					<button type="button" class="btn btn-primary" id="btnCreaC">Crear</button>

@@ -16,6 +16,8 @@ function mostrarImagen(event) {
 
 
 function crearCuenta(){
+
+
     let boton = document.getElementById("btnCrea");
     let NU = document.getElementById("NU").value;
     let Contra = document.getElementById("contraseña").value;
@@ -41,6 +43,9 @@ function crearCuenta(){
     console.log(Correo);
     console.log(radioV);
 
+    let imagenS = localStorage.getItem("ImagenG");
+
+
     var req = new XMLHttpRequest();
     req.open("POST", "http://localhost:3000/user", true);
     req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -52,20 +57,28 @@ function crearCuenta(){
         PoP: radioV
       })
     );
+
     
+    window.location.href='iniciarSesion.html';
 }
+
+
 
 
 function fetch(){
     var button = document.getElementById("btnCreaC");
     if(button){
-        button.addEventListener("click",crearCuenta, false );
+      button.addEventListener("click",crearCuenta, false );
     }
+
+   
 
     window.addEventListener('load', init, false);
     document.getElementById("NU").value = "";
     document.getElementById("contraseña").value = "";
     document.getElementById("Email").value = "";
+
+    
    
 };
 

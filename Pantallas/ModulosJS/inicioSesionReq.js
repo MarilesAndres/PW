@@ -6,6 +6,24 @@ var cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
+const bodyParser= require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const path = require("path");
+
+const multer = require('multer');
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + Path2D.extname(file.originalname));
+  }
+})
+ 
+var upload = multer({ storage: storage })
+
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -26,6 +44,37 @@ app.get("/user", (req, res) => {
   );
 });
 
+app.post('/uploadfile', upload.single('myFile'), (req, res, next) => {
+  const file = req.file
+  if (!file) {
+    const error = new Error('Please upload a file')
+    error.httpStatusCode = 400
+    return next(error)
+  }
+    req.send({file: file});
+})
+
+app.post("/uploadfileanddata", upload.single("myFile"), (req, res, next) => {
+  const file = req.file;
+  const name = req.body.name;
+  const password = req.body.password;
+  if (!file) {
+    const error = new Error("Please upload a file");
+    error.httpStatusCode = 400;
+    return next(error);
+  }
+
+  connection.query(
+    `insert usuario(Correo, NombreUsuario, Contraseña, PoP, Foto) values ('${req.body.Email}','${req.body.NU}','${req.body.contraseña}', ${req.body.optradio} , ${req.file.path});`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
+
+  res.send({ name: name, password: password, file: file });
+});
+
 
 ///////////////////////////---------CREAR CUENTA--------------/////////////////////////////////////////////////////////////////
 
@@ -38,6 +87,7 @@ app.post("/user", (req, res) => {
     }
   );
 });
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
@@ -197,6 +247,42 @@ app.post("/agregarSeccionLista", (req, res) => {
 app.post("/agregarElemento", (req, res) => {
   connection.query(
     `call agregarElemento('${req.body._titulo}', '${req.body._Descripcion}', ${req.body._IdLista})`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
+});
+
+
+/////////////////////////////////////-----ELIMINA LISTAS---------//////////////////////////////////////////////
+
+app.post("/borrarLista", (req, res) => {
+  connection.query(
+    `call eliminTabla ('${req.body._IdLista}')`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
+});
+
+
+
+
+app.get("/verListaId/:id", (req, res) => {
+  connection.query(
+    `call VerListaId("${req.params.id}");`,
+    function (err, rows, fields) {
+      if (err) throw err;
+      res.send(rows);
+    }
+  );
+});
+
+app.post("/EditaLista", (req, res) => {
+  connection.query(
+    `call editaLista (${req.body._IdLista}, '${req.body._NombreLista}', '${req.body._Descripcion}', ${req.body._PrivPub})`,
     function (err, rows, fields) {
       if (err) throw err;
       res.send(rows);

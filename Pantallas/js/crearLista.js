@@ -240,6 +240,7 @@ $("#btnCrea").click(function(){
                 }
 
                 GuardarTodo = true;
+                window.location = 'paginaPerfil.html';
 
             });
         }
@@ -250,7 +251,7 @@ $("#btnCrea").click(function(){
     req3.send();
 
   
-        window.location = 'paginaPerfil.html';
+        
     
    
 })

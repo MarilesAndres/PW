@@ -379,10 +379,7 @@ function fetch(){
                 }
                 else{
                     valor --;
-                }
-                
-                
-                
+                }  
             });
         }
         else{

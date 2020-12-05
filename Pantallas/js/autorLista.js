@@ -1,3 +1,13 @@
+$(document).click(function(event) {
+    var text = $(event.target).text();
+    localStorage.setItem("nombreLista", text);
+  });
+  
+  $("#ListasUsuario").on("click", "a", function (event) {
+   window.location.href='verListas.html';
+  });
+
+
 function fetch(){
   
     var ID = localStorage.getItem("ID");
