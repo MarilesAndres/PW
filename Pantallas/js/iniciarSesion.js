@@ -17,13 +17,13 @@ function logIn(){
                 console.log(`${v}`);
                 if( (k.NombreUsuario == usuario) && (contra == k.Contraseña))
                 {
-                    console.log("entraZORRA");
+                  
                     entro = true;
                    localStorage.setItem("ID",k.IdUsuario);
                 }
                 else{
                     if(entro == false){
-                        console.log("TODAVIA MI REY");
+                       
                         entro = false;
                     }
                 }
